@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 export default function PropertyInvestmentCalculator() {
@@ -23,10 +22,10 @@ export default function PropertyInvestmentCalculator() {
     return rent * weeks * ((52 - vacancyWeeks) / 52);
   };
 
+  const loanAmount = purchasePrice * (1 - depositPercent / 100);
   const equityAtPurchase = marketValue - loanAmount;
   const grossYield = (getAnnualRent() / purchasePrice) * 100;
   const netYield = ((getAnnualRent() - annualExpenses) / purchasePrice) * 100;
-  // const loanAmount = purchasePrice * (1 - depositPercent / 100);
   const cashFlow = getAnnualRent() - annualExpenses - (loanAmount * (interestRate / 100));
   const belowMarketPercent = ((marketValue - purchasePrice) / marketValue) * 100;
 
@@ -82,3 +81,4 @@ export default function PropertyInvestmentCalculator() {
     </div>
   );
 }
+
